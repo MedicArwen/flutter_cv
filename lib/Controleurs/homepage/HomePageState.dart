@@ -62,9 +62,9 @@ class HomePageState extends State<HomePage>
                       ),
                       ),
                       Positioned(
-                        top: 0,
+                        top: 10,
                           width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height-100,
+                          height: MediaQuery.of(context).size.height-110,
                           child:widgetCurrentPage),
                       MyNavigationBar(_onItemTapped)
                     ]
