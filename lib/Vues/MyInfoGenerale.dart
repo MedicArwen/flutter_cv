@@ -15,7 +15,7 @@ class MyInfoGenerale extends StatelessWidget
     print("MyInfoGenerale::lapolice:"+(Theme.of(parentContext).textTheme.headline1.fontFamily));
     return
     Container(
-      //height: 500,
+      height: MediaQuery.of(context).size.height-80,
 
       margin: EdgeInsets.all(30),
       decoration: BoxDecoration(

@@ -43,27 +43,33 @@ class HomePageState extends State<HomePage>
           //    Expanded(child:
           Container(
             height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width,
               color: Color(0xFF49B9E9),
                   child:Stack
                     (
                     alignment: Alignment.bottomCenter,
                     children:
                     [
-                      Image.asset(
+                      Positioned(
+                      top: 0,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                       child:Image.asset(
                         'images/fond_homepage.png',
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.fitWidth,
                       ),
-                      widgetCurrentPage,
+                      ),
+                      Positioned(
+                        top: 0,
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height-100,
+                          child:widgetCurrentPage),
                       MyNavigationBar(_onItemTapped)
                     ]
                   )
-          ),
-             // ),
-
-            ],
+              )]
           )
       )
   );
