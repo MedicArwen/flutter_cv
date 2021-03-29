@@ -35,32 +35,34 @@ class HomePageState extends State<HomePage>
     (
       title: 'Mon CV',
       home: SafeArea(
-        top:true,
-          bottom: true,
+        top:false,
+          bottom: false,
           child: Column(
             children:
             [
           //    Expanded(child:
           Container(
-            height: MediaQuery.of(context).size.height-191,
+            height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               color: Color(0xFF49B9E9),
                   child:Stack
                     (
+                    alignment: Alignment.bottomCenter,
                     children:
                     [
                       Image.asset(
                         'images/fond_homepage.png',
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height-80,
+                        height: MediaQuery.of(context).size.height,
                         fit: BoxFit.fill,
                       ),
                       widgetCurrentPage,
+                      MyNavigationBar(_onItemTapped)
                     ]
                   )
           ),
              // ),
-              MyNavigationBar(_onItemTapped)
+
             ],
           )
       )
