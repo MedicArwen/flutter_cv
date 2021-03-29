@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttercv/Vues/MyExperience.dart';
 import 'package:fluttercv/Vues/MyFormations.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale.dart';
@@ -34,12 +35,14 @@ class HomePageState extends State<HomePage>
     (
       title: 'Mon CV',
       home: SafeArea(
+        top:true,
+          bottom: true,
           child: Column(
             children:
             [
           //    Expanded(child:
           Container(
-            height: MediaQuery.of(context).size.height-80,
+            height: MediaQuery.of(context).size.height-191,
               width: MediaQuery.of(context).size.width,
               color: Color(0xFF49B9E9),
                   child:Stack
