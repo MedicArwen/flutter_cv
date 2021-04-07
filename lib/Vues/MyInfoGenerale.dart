@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttercv/Vues/DefautPanelView.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale/ListHardSkills.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale/RichTextAboutMe.dart';
 
@@ -12,35 +13,9 @@ class MyInfoGenerale extends StatelessWidget
 
   @override
   Widget build(BuildContext context,) {
-    print("MyInfoGenerale::lapolice:"+(Theme.of(parentContext).textTheme.headline1.fontFamily));
+    print("MyInfoGenerale::build:");
     return
-    Container(
-      height: MediaQuery.of(context).size.height-80,
-
-      margin: EdgeInsets.all(30),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(30)),
-        color: Colors.white,
-        boxShadow:[
-          BoxShadow(
-            color: Colors.black.withOpacity(0.5), //color of shadow
-            spreadRadius: 5, //spread radius
-            blurRadius: 7, // blur radius
-            offset: Offset(5, 5), // changes position of shadow
-            //first paramerter of offset is left-right
-            //second parameter is top to down
-          ),
-          //you can set more BoxShadow() here
-        ],
-      ),
-      child:
-      Column(
-     children:
-      [Expanded(
-        child:
-        Padding(
-        padding: EdgeInsets.all(10),
-        child: Column
+     DefautPanelView(Column
           (
           children: [
             Row(
@@ -62,20 +37,7 @@ class MyInfoGenerale extends StatelessWidget
             ),
             ListHardSkills(parentContext)
           ]
-        ),
-
-    )
-            ),
-    Container(height: 50,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(bottomLeft:Radius.circular(30),bottomRight:Radius.circular(30)),
-        color: Color(0xffC8C8C8),
-      ),
-    )
-    ],
-      )
-    )
-    ;
+        ), parentContext);
   }
 
 }

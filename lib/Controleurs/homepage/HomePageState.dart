@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttercv/Controleurs/homepage/MyPageSlider.dart';
 import 'package:fluttercv/Vues/MyExperience.dart';
 import 'package:fluttercv/Vues/MyFormations.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale.dart';
@@ -11,11 +12,12 @@ String currentPage = "default";
 int selectedPage = 0;
 class HomePageState extends State<HomePage>
 {
-  // liste du menu
+  GlobalKey<MyPageSliderState> _slider = GlobalKey();
+
 
   void _onItemTapped(int index) {
     setState(() {
-      selectedPage = index;
+      _slider.currentState.setPage(index);
     });
   }
   @override
@@ -24,9 +26,9 @@ class HomePageState extends State<HomePage>
     List<Widget> _widgetOptions = <Widget>
     [
     Container(child: MyInfoGenerale(context)),
-    Container(child: MyFormations()),
-    Container(child: MyExperience()),
-    Container(child: MyLoisirs())
+    Container(child: MyFormations(context)),
+    Container(child: MyExperience(context)),
+    Container(child: MyLoisirs(context))
     ];
     print("HomePageState:Build:lapolice:"+Theme.of(context).textTheme.headline4.fontFamily);
   Widget widgetCurrentPage = _widgetOptions[selectedPage];
@@ -65,7 +67,7 @@ class HomePageState extends State<HomePage>
                         top: 10,
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height-110,
-                          child:widgetCurrentPage),
+                          child:MyPageSlider(key:_slider,pages:_widgetOptions,duration:Duration(seconds: 1))),
                       MyNavigationBar(_onItemTapped)
                     ]
                   )
@@ -73,6 +75,13 @@ class HomePageState extends State<HomePage>
           )
       )
   );
+
   }
+
+  @override
+  void initState() {
+
+  }
+
 
 }
