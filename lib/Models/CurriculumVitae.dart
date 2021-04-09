@@ -218,8 +218,8 @@ class CurriculumVitae
   {
     List<Loisir> liste = [];
     liste.add(new Loisir("Guitare Basse","J'apprend à jouer de la guitare basse et j'espère un jour avoir le niveau pour pouvoir jouer avec des amis.", 'photo_guitare.jpg'));
-    liste.add(new Loisir("Jeux Vidéos","Je m'investis dans une association, ARIG, afin de proposer des événements -des Lan Party - ou l'on se retrouve le temps d'un week-end.", 'photo_guitare.jpg'));
-    liste.add(new Loisir("Marche à pied","Avec ou sans bâtons, je marche tous les jours pour le plaisir et la forme physique.", 'photo_guitare.jpg'));
+    liste.add(new Loisir("Jeux Vidéos","Je m'investis dans une association, ARIG, afin de proposer des événements -des Lan Party - ou l'on se retrouve le temps d'un week-end.", 'arig.jpg'));
+    liste.add(new Loisir("Marche à pied","Avec ou sans bâtons, je marche tous les jours pour le plaisir et la forme physique.", 'marche.jpg'));
     return liste;
   }
 }

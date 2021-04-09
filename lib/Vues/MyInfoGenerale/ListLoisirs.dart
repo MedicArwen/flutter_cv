@@ -9,8 +9,9 @@ import 'package:fluttercv/Vues/MyInfoGenerale/ListViews/ListViewLoisirs.dart';
 
 class ListLoisirs extends StatefulWidget
 {
+  Function onTap;
   BuildContext parentContext;
-  ListLoisirs(this.parentContext);
+  ListLoisirs(this.onTap,this.parentContext);
 
   @override
   State<ListLoisirs> createState() => ListLoisirsState();
@@ -38,6 +39,6 @@ class ListLoisirsState extends State<ListLoisirs> {
               .textTheme
               .caption), LinearProgressIndicator()]);
     }
-    return Expanded(child:ListViewLoisirs(liste, this.widget.parentContext));
+    return Expanded(child:ListViewLoisirs(liste,widget.onTap, this.widget.parentContext));
   }
 }

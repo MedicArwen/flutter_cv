@@ -9,9 +9,10 @@ import 'package:fluttercv/Vues/MyInfoGenerale/ListViews/ListViewTileLoisir.dart'
 class ListViewLoisirs extends StatelessWidget {
 
   final List<Loisir> loisirList;
+  final Function onTap;
  final BuildContext parentContext;
 
-  ListViewLoisirs(this.loisirList,this.parentContext);
+  ListViewLoisirs(this.loisirList,this.onTap,this.parentContext);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ListViewLoisirs extends StatelessWidget {
     return new ListView.builder(
       itemCount: this.loisirList.length,
       //itemBuilder: (c,i) => new ListViewTileCursus(cursusList[i],parentContext),
-        itemBuilder: (c,i) => new ListViewTileLoisir(loisirList[i], parentContext)
+        itemBuilder: (c,i) => new ListViewTileLoisir(loisirList[i],i,this.onTap, parentContext)
       //itemBuilder: (c,i) => new ListViewTileHardSkill(skillList[i],parentContext),
     );
 

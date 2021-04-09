@@ -1,8 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.takotek.fluttercv">
    <application
-        android:label="fluttercv"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Flutter CV"
+        android:icon="@mipmap/ic_launcher"
+       android:name="io.flutter.app.FlutterApplication">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
