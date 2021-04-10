@@ -42,8 +42,14 @@ class MyContactsState extends State<MyContacts> with TickerProviderStateMixin
         Stack(children: [
           Positioned(child:
           AnimatedContainer(child:Image.asset('images/photo_guitare.jpg',height:widget.height,fit: BoxFit.fitHeight),duration: Duration(seconds: 3),),top: 100-slideHeight),
-          Positioned(child: FloatingActionButton(onPressed: ()=>{_makingOpenUrl('https://opn.to/r/Carte_de_visite_de_Thierry/')},child: Icon(Icons.person_add,color: Colors.grey),backgroundColor: Colors.white24,),right:20, top:20),
-          AnimatedContainer(width: widget.width,height: slideHeight,duration: Duration(milliseconds: 50),
+          Positioned(child: Row(
+              children:
+                [
+                  FloatingActionButton(onPressed: ()=>{_makingOpenUrl('https://opn.to/r/Carte_de_visite_de_Thierry/')},child: Icon(Icons.person_add,color: Colors.grey),backgroundColor: Colors.white24,),
+                  FloatingActionButton(onPressed: ()=>{_makingOpenUrl('https://www.youtube.com/channel/UCdl3DqdHsMe-dg2CeVZGj7A/')},child: Icon(Icons.video_collection,color: Colors.grey),backgroundColor: Colors.white24,)
+                ])
+            ,right:20, top:20),
+           AnimatedContainer(width: widget.width,height: slideHeight,duration: Duration(milliseconds: 50),
           child:GestureDetector(onPanStart: (drag){print("panstart");},onPanUpdate: (drag){print(drag.globalPosition.dy);setState(() {
             slideHeight = widget.height-drag.globalPosition.dy;
           });},child:
