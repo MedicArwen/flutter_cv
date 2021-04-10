@@ -7,14 +7,16 @@ import 'DefautPanelView.dart';
 class MyExperience extends StatelessWidget
 {
   BuildContext parentContext;
+  double height;
+  double width;
 
-  MyExperience(this.parentContext);
+  MyExperience(this.height,this.width,this.parentContext);
 
   @override
   Widget build(BuildContext context,) {
     print("MyInfoGenerale::build:");
     return
-      DefautPanelView(Column
+      DefautPanelView(parentContext,Column
         (
           children: [
             Center(child:Text("Expériences",style: Theme.of(parentContext).textTheme.headline1)),
@@ -22,7 +24,7 @@ class MyExperience extends StatelessWidget
             Divider(height:10),
             ListExperiencesPro(parentContext)
           ]
-      ), parentContext);
+      ), 20,10,height*0.8,width);
   }
 
 }

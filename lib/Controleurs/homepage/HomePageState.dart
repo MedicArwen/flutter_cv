@@ -1,141 +1,79 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttercv/Controleurs/homepage/MyPageSlider.dart';
+import 'package:fluttercv/Vues/Elements/AnimatedBackground.dart';
 import 'package:fluttercv/Vues/MyContacts.dart';
 import 'package:fluttercv/Vues/MyExperience.dart';
 import 'package:fluttercv/Vues/MyFormations.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale.dart';
 import 'package:fluttercv/Vues/MyLoisirs.dart';
 import 'package:fluttercv/Vues/MyNavigationBar.dart';
-import 'package:sensors/sensors.dart';
-
 import 'HomePage.dart';
 String currentPage = "default";
 int selectedPage = 0;
-class HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage>
+{
   GlobalKey<MyPageSliderState> _slider = GlobalKey();
-  double x = -20.0;
-  double y = 0.0;
+
+  List<Widget> listePages;
 
   void _onItemTapped(int index) {
     setState(() {
-      selectedPage=index;
+      selectedPage = index;
       _slider.currentState.setPage(index);
     });
   }
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    gyroscopeEvents.listen((GyroscopeEvent event) {
 
-      if (event.x.abs()>0.1)
-      setState(() {
-        print(event);
-        x = x + event.x;
-      });
-      if (event.y.abs()>0.1)
-        setState(() {
-          print(event);
-          y = y + event.y;
-        });
-    });
+    @override
+    Widget build(BuildContext context)
+    {
+      print("HomePageState:Build:");
+      print("page selectionnée:" + selectedPage.toString());
+      double widthScreen = MediaQuery.of(context).size.width;
+      double heightScreen = MediaQuery.of(context).size.height;
+      double heightBlackPart = (heightScreen/15).truncateToDouble();
+      double heightBgImage = heightScreen-heightBlackPart;
+     if (listePages == null) {
+       print('génération des pages');
+       listePages = <Widget>
+       [
+         Container(child: MyInfoGenerale(heightScreen, widthScreen, context)),
+         Container(child: MyFormations(heightScreen, widthScreen, context)),
+         Container(child: MyExperience(heightScreen, widthScreen, context)),
+         Container(child: MyLoisirs(heightScreen, widthScreen, context)),
+         Container(child: MyContacts(heightScreen, widthScreen, context))
+       ];
+     }
+      else
+        print ('liste des pages déjà instanciée');
+
+
+      return MaterialApp
+        (
+          title: 'Mon CV',
+          home: SafeArea(
+              top: false,
+              bottom: false,
+              child: Column(
+                  children:
+                  [
+                    Container(height: heightScreen, width: widthScreen, color: Color(0xFF49B9E9),
+                        child: Stack
+                          (
+                            alignment: Alignment.bottomCenter,
+                            children:
+                            [
+                              AnimatedBackground(widthScreen,heightBgImage,heightBlackPart),
+                              Positioned(top: 0, width:widthScreen,height: heightBgImage,
+                                  child: MyPageSlider(key: _slider,pages: listePages,duration: Duration(seconds: 1))),
+
+                              AnimatedContainer(color: selectedPage==4?Colors.white:Colors.black,height: heightBlackPart+20,width: widthScreen,duration: Duration(milliseconds: 200),),
+                              MyNavigationBar(_onItemTapped)
+                            ]
+                        )
+                    )
+                  ]
+              )
+          )
+      );
+    }
   }
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> _widgetOptions = <Widget>
-    [
-      Container(child: MyInfoGenerale(context)),
-      Container(child: MyFormations(context)),
-      Container(child: MyExperience(context)),
-      Container(child: MyLoisirs(context)),
-      Container(child: MyContacts(context))
-    ];
-
-    print("HomePageState:Build:lapolice:" + Theme
-        .of(context)
-        .textTheme
-        .headline4
-        .fontFamily);
-    Widget widgetCurrentPage = _widgetOptions[selectedPage];
-    print("page selectionnée:" + selectedPage.toString());
-
-    return MaterialApp
-      (
-        title: 'Mon CV',
-        home: SafeArea(
-            top: false,
-            bottom: false,
-            child: Column(
-                children:
-                [
-                  //    Expanded(child:
-                  Container(
-                      height: MediaQuery
-                          .of(context)
-                          .size
-                          .height,
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      color: Color(0xFF49B9E9),
-                      child: Stack
-                        (
-                          alignment: Alignment.bottomCenter,
-                          children:
-                          [
-                            Positioned(
-                              top: x,
-                              left: y,
-                              width: MediaQuery
-                                  .of(context)
-                                  .size
-                                  .width,
-                              height: MediaQuery
-                                  .of(context)
-                                  .size
-                                  .height,
-                              child: Image.asset(
-                                'images/fond_homepage.png',
-                                width: MediaQuery
-                                    .of(context)
-                                    .size
-                                    .width,
-                                height: MediaQuery
-                                    .of(context)
-                                    .size
-                                    .height,
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
-                            Positioned(
-                              //  top: 10,
-                              top:0,
-                                width: MediaQuery
-                                    .of(context)
-                                    .size
-                                    .width,
-                                height: selectedPage==4?MediaQuery
-                                    .of(context)
-                                    .size
-                                    .height:MediaQuery
-                                    .of(context)
-                                    .size
-                                    .height - 110,
-                                child: MyPageSlider(key: _slider,
-                                    pages: _widgetOptions,
-                                    duration: Duration(seconds: 1))),
-                            MyNavigationBar(_onItemTapped)
-                          ]
-                      )
-                  )
-                ]
-            )
-        )
-    );
-  }
-}

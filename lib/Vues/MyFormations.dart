@@ -10,14 +10,16 @@ import 'package:fluttercv/Vues/MyInfoGenerale/RichTextAboutMe.dart';
 class MyFormations extends StatelessWidget
 {
   BuildContext parentContext;
+  double height;
+  double width;
 
-  MyFormations(this.parentContext);
+  MyFormations(this.height,this.width,this.parentContext);
 
   @override
   Widget build(BuildContext context,) {
     print("MyInfoGenerale::build:");
     return
-      DefautPanelView(Column
+      DefautPanelView(parentContext,Column
         (
           children: [
             Center(child:Text("Formations",style: Theme.of(parentContext).textTheme.headline1)),
@@ -25,7 +27,7 @@ class MyFormations extends StatelessWidget
             Divider(height:10),
             ListCursus(parentContext)
           ]
-      ), parentContext);
+      ), 20,10,height*0.8,width);
   }
 
 }

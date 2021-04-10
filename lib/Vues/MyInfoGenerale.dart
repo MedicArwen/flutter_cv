@@ -8,14 +8,17 @@ import 'package:fluttercv/Vues/MyInfoGenerale/RichTextAboutMe.dart';
 class MyInfoGenerale extends StatelessWidget
 {
   BuildContext parentContext;
+  double height;
+  double width;
 
-  MyInfoGenerale(this.parentContext);
+  MyInfoGenerale(this.height,this.width,this.parentContext);
 
   @override
   Widget build(BuildContext context,) {
     print("MyInfoGenerale::build:");
     return
-     DefautPanelView(Column
+    DefautPanelView(this.parentContext,
+         Column
           (
           children: [
             Row(
@@ -30,14 +33,14 @@ class MyInfoGenerale extends StatelessWidget
                 )
               ],
             ),
-            Container(
+            Expanded(child:Container(
               margin: EdgeInsets.only(top: 30),
               child:
-            RichTextAboutMe(parentContext)
-            ),
-            ListHardSkills(parentContext)
+              Scrollbar(child:SingleChildScrollView(child:RichTextAboutMe(parentContext)),thickness: 10)
+            )),
+            Expanded(child: Scrollbar(child:ListHardSkills(parentContext),thickness: 10))
           ]
-        ), parentContext);
+        ),20,10,height*0.8,width);
   }
 
 }

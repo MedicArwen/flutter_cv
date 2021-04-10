@@ -34,6 +34,6 @@ List<TechnologySkill> liste;
               .textTheme
               .caption), LinearProgressIndicator()]);
     }
-    return Expanded(child:ListViewHardSkills(liste, this.widget.parentContext));
+    return ListViewHardSkills(liste, this.widget.parentContext);
   }
 }

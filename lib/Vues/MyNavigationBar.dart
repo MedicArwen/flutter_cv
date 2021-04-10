@@ -15,7 +15,7 @@ class MyNavigationBar extends StatelessWidget {
 
     return
       Container(
-        color: Colors.black,
+        //color: Colors.black,
       child:
       Container(
           height: 80,

@@ -12,7 +12,10 @@ import 'DefautPanelView.dart';
 class MyContacts extends StatefulWidget
 {
   BuildContext parentContext;
-  MyContacts(this.parentContext);
+  double height;
+  double width;
+
+  MyContacts(this.height,this.width,this.parentContext);
 
   @override
   State<MyContacts> createState() => MyContactsState();
@@ -37,16 +40,17 @@ class MyContactsState extends State<MyContacts> with TickerProviderStateMixin
       Container(child:
         Stack(children: [
           Positioned(child:
-          AnimatedContainer(child:Image.asset('images/photo_guitare.jpg',height: MediaQuery.of(context).size.height,fit: BoxFit.fitHeight),duration: Duration(seconds: 3),),top: 100-slideHeight),
-          AnimatedContainer(width: MediaQuery.of(context).size.width,height: slideHeight,color: Colors.black12,duration: Duration(milliseconds: 50),
+          AnimatedContainer(child:Image.asset('images/photo_guitare.jpg',height:widget.height,fit: BoxFit.fitHeight),duration: Duration(seconds: 3),),top: 100-slideHeight),
+          AnimatedContainer(width: widget.width,height: slideHeight,duration: Duration(milliseconds: 50),
           //child: Row(children: [TextButton(onPressed:goUp, child: Text('UP')),TextButton(onPressed:goDown, child: Text('down'))],),
           child:GestureDetector(onPanStart: (drag){print("panstart");},onPanUpdate: (drag){print(drag.globalPosition.dy);setState(() {
-            slideHeight =  MediaQuery.of(context).size.height-drag.globalPosition.dy;
+            slideHeight = widget.height-drag.globalPosition.dy;
           });},child:
             Column(children:
             [
               Center(child:Text('Pour me Contacter',style: Theme.of(widget.parentContext).textTheme.headline1,)),
-              Card(child:
+              Expanded(child:ListView(children:
+              [Card(child:
                 ListTile(
                   dense: false,
                   isThreeLine: false,
@@ -75,15 +79,19 @@ class MyContactsState extends State<MyContacts> with TickerProviderStateMixin
                 title: Text('https://github.com/MedicArwen',style: Theme.of(widget.parentContext).textTheme.bodyText1),
                 tileColor: Colors.white10,
               )),
-              Image.asset('images/qr_code.png')
+                Image.asset('images/qr_code.png')])),
+
             ])
 
-            )
-            )
-          ],alignment: Alignment.bottomCenter,),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      color: Colors.black,);
+
+            ), decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(30)),
+  color: Colors.white)
+          )
+          ],alignment: Alignment.bottomCenter),
+      width:widget.width,
+      height: widget.height,
+      );
   }
 
 void goUp()

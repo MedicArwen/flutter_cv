@@ -6,17 +6,28 @@ class DefautPanelView extends StatelessWidget
 {
   BuildContext parentContext;
   Widget content;
-  bool isMargin;
-  DefautPanelView(this.content,this.parentContext,{this.isMargin});
+  double margin;
+  double padding;
+  double height;
+  double width;
+
+  DefautPanelView(this.parentContext, this.content, this.margin,
+      this.padding,this.height, this.width);
 
   @override
   Widget build(BuildContext context,) {
-    isMargin == null?isMargin=true:print("marge indiquée:"+isMargin.toString());
     print("DefautPanelView::build:");
+    print(margin.toString());
+    print(padding.toString());
+    print(height.toString());
+    print(width.toString());
+    print(parentContext.toString());
+
     return
-      Container(
-          height: MediaQuery.of(context).size.height-80,
-          margin: EdgeInsets.all(30),
+    Container(
+
+          height: height,
+          margin: EdgeInsets.all (margin),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30)),
             color: Colors.white,
@@ -38,7 +49,7 @@ class DefautPanelView extends StatelessWidget
             [Expanded(
                 child:
                 Padding(
-                  padding: isMargin?EdgeInsets.all(10):EdgeInsets.all(0),
+                  padding:EdgeInsets.all(padding),
                   child: content
                 )
             ),
