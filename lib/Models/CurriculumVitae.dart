@@ -1,5 +1,7 @@
 
+import 'package:fluttercv/Models/ContactURL.dart';
 import 'package:fluttercv/Models/Cursus.dart';
+import 'package:fluttercv/Models/EnumTypeContactUrl.dart';
 import 'package:fluttercv/Models/ExperiencePro.dart';
 import 'TechnologySkill.dart';
 import 'Loisir.dart';
@@ -220,6 +222,25 @@ class CurriculumVitae
     liste.add(new Loisir("Guitare Basse","J'apprend à jouer de la guitare basse et j'espère un jour avoir le niveau pour pouvoir jouer avec des amis.", 'photo_guitare.jpg'));
     liste.add(new Loisir("Jeux Vidéos","Je m'investis dans une association, ARIG, afin de proposer des événements -des Lan Party - ou l'on se retrouve le temps d'un week-end.", 'arig.jpg'));
     liste.add(new Loisir("Marche à pied","Avec ou sans bâtons, je marche tous les jours pour le plaisir et la forme physique.", 'marche.jpg'));
+    return liste;
+  }
+  static Future<List<ContactURL>> getContactList()
+  async
+  {
+    List<ContactURL> liste = [];
+    liste.add(ContactURL('mailto:thierry.bru@takotek.fr',EnumTypeContactUrl.email));
+    liste.add(ContactURL('07 63 90 59 59',EnumTypeContactUrl.phone));
+    liste.add(ContactURL('www.linkedin.com/in/thierry-bru/',EnumTypeContactUrl.linkedIn));
+    liste.add(ContactURL('https://github.com/MedicArwen',EnumTypeContactUrl.github));
+    liste.add(ContactURL('images/qr_code.png',EnumTypeContactUrl.urlQRCode));
+    return liste;
+  }
+  static Future<List<ContactURL>> getContactButton()
+  async
+  {
+    List<ContactURL> liste = [];
+    liste.add(ContactURL('https://opn.to/r/Carte_de_visite_de_Thierry/',EnumTypeContactUrl.urlWebvCard));
+    liste.add(ContactURL('https://www.youtube.com/channel/UCdl3DqdHsMe-dg2CeVZGj7A/',EnumTypeContactUrl.youtube));
     return liste;
   }
 }
