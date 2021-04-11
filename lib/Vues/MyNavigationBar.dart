@@ -32,7 +32,7 @@ class MyNavigationBar extends StatelessWidget {
       children:[
         Container(width: 20,),
            MyBigButtonNavigationBar(()=>{print("tap Home"),onItemTapped(0)}),
-            MySmallButtonNavigationBar(Icons.school,"Formations",()=>{print("tap scool"),onItemTapped(1)}),
+            MySmallButtonNavigationBar(Icons.school,"Formation",()=>{print("tap scool"),onItemTapped(1)}),
             MySmallButtonNavigationBar(Icons.assessment,"Experience",()=>{print("tap expe"),onItemTapped(2)}),
             MySmallButtonNavigationBar(Icons.music_note,"Loisirs",()=>{print("tap loisir"),onItemTapped(3)}),
         MySmallButtonNavigationBar(Icons.contact_mail,"Contacts",()=>{print("tap contact"),onItemTapped(4)})

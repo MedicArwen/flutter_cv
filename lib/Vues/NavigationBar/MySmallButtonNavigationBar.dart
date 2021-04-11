@@ -19,7 +19,7 @@ class MySmallButtonNavigationBar extends StatelessWidget
                       child: Column(
                       children:
                       [
-                        Icon(icone,size: 30,),
+                        Icon(icone,size: 20,),
                         Text(label,style: Theme.of(context).textTheme.caption)
                         ]),
                     ),
