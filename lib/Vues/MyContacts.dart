@@ -11,7 +11,7 @@ import 'package:fluttercv/Vues/ListViews/mycontacts/MyContactList.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale/ListViews/ListViewLoisirs.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'DefautPanelView.dart';
+import 'Elements/DefautPanelView.dart';
 import 'Elements/ListLoadingProgressIndicator.dart';
 
 class MyContacts extends StatefulWidget
@@ -69,7 +69,7 @@ class MyContactsState extends State<MyContacts> with TickerProviderStateMixin
       Container(child:
         Stack(children: [
           Positioned(child:
-          AnimatedContainer(child:Image.asset('images/photo_guitare.jpg',height:widget.height,fit: BoxFit.fitHeight),duration: Duration(seconds: 3),),top: 100-slideHeight),
+          AnimatedContainer(child:Image.asset('images/chateauroux.jpg',height:widget.height,width:widget.width,fit: BoxFit.cover),duration: Duration(seconds: 3),),top: 100-slideHeight),
           Positioned(child:MyContactFloatingButtons(listeContactButtons,_makingOpenUrl),right:20, top:20),
           AnimatedContainer(width: widget.width,height: slideHeight,duration: Duration(milliseconds: 50),
           child:GestureDetector(
@@ -95,6 +95,7 @@ class MyContactsState extends State<MyContacts> with TickerProviderStateMixin
           ],alignment: Alignment.bottomCenter),
       width:widget.width,
       height: widget.height,
+        color: Colors.black,
       );
   }
 

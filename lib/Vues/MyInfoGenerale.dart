@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttercv/Vues/DefautPanelView.dart';
+import 'file:///D:/DEV/APP/flutter_cv/lib/Vues/Elements/DefautPanelView.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale/ListHardSkills.dart';
-import 'package:fluttercv/Vues/MyInfoGenerale/RichTextAboutMe.dart';
+import 'file:///D:/DEV/APP/flutter_cv/lib/Vues/Elements/RichTextAboutMe.dart';
 
 
 class MyInfoGenerale extends StatelessWidget

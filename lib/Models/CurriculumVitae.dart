@@ -197,7 +197,7 @@ class CurriculumVitae
     listeTech = ['JSP','SQL','JS'];
     listeEnv = ['Windows','Tomcat'];
     listePostes = ['Développeur'];
-    experiencePro = new ExperiencePro(DateTime(2005,1,1),DateTime(2005,54,31),'ELLA.BE','Louvain',listeTaches,listeTech,listeEnv,listePostes);
+    experiencePro = new ExperiencePro(DateTime(2005,1,1),DateTime(2005,4,31),'ELLA.BE','Louvain',listeTaches,listeTech,listeEnv,listePostes);
     liste.add(experiencePro);
 
     listeTaches =
@@ -209,7 +209,7 @@ class CurriculumVitae
     listeTech = ['ASP','SQL','JS'];
     listeEnv = ['Windows','ASPNET','Windows NT'];
     listePostes = ['Développeur'];
-    experiencePro = new ExperiencePro(DateTime(2005,1,1),DateTime(2005,54,31),'ELLA.BE','Louvain',listeTaches,listeTech,listeEnv,listePostes);
+    experiencePro = new ExperiencePro(DateTime(2001,2,1),DateTime(2002,4,31),'Data Technologies','Paris',listeTaches,listeTech,listeEnv,listePostes);
     liste.add(experiencePro);
 
     return liste;
@@ -219,9 +219,9 @@ class CurriculumVitae
   async
   {
     List<Loisir> liste = [];
-    liste.add(new Loisir("Guitare Basse","J'apprend à jouer de la guitare basse et j'espère un jour avoir le niveau pour pouvoir jouer avec des amis.", 'photo_guitare.jpg'));
-    liste.add(new Loisir("Jeux Vidéos","Je m'investis dans une association, ARIG, afin de proposer des événements -des Lan Party - ou l'on se retrouve le temps d'un week-end.", 'arig.jpg'));
-    liste.add(new Loisir("Marche à pied","Avec ou sans bâtons, je marche tous les jours pour le plaisir et la forme physique.", 'marche.jpg'));
+    liste.add(new Loisir("Guitare Basse","J'apprend à jouer de la guitare basse et j'espère un jour avoir le niveau pour pouvoir jouer avec des amis.", 'guitare_basse.jpg'));
+    liste.add(new Loisir("Jeux Vidéos","Je m'investis dans une association, ARIG, afin de proposer des événements -des Lan Party - ou l'on se retrouve le temps d'un week-end.", 'video_game.jpg'));
+    liste.add(new Loisir("Marche à pied","Avec ou sans bâtons, je marche tous les jours pour le plaisir et la forme physique.", 'forest.jpg'));
     return liste;
   }
   static Future<List<ContactURL>> getContactList()
@@ -229,7 +229,7 @@ class CurriculumVitae
   {
     List<ContactURL> liste = [];
     liste.add(ContactURL('mailto:thierry.bru@takotek.fr',EnumTypeContactUrl.email));
-    liste.add(ContactURL('07 63 90 59 59',EnumTypeContactUrl.phone));
+    //liste.add(ContactURL('07 63 90 59 59',EnumTypeContactUrl.phone));
     liste.add(ContactURL('www.linkedin.com/in/thierry-bru/',EnumTypeContactUrl.linkedIn));
     liste.add(ContactURL('https://github.com/MedicArwen',EnumTypeContactUrl.github));
     liste.add(ContactURL('images/qr_code.png',EnumTypeContactUrl.urlQRCode));

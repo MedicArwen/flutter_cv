@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale/ListExperiencesPro.dart';
 
-import 'DefautPanelView.dart';
+import 'Elements/DefautPanelView.dart';
 
 class MyExperience extends StatelessWidget
 {

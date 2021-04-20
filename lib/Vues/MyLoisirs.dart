@@ -8,7 +8,7 @@ import 'package:fluttercv/Models/CurriculumVitae.dart';
 import 'package:fluttercv/Models/Loisir.dart';
 import 'package:fluttercv/Vues/MyInfoGenerale/ListViews/ListViewLoisirs.dart';
 
-import 'DefautPanelView.dart';
+import 'Elements/DefautPanelView.dart';
 
 class MyLoisirs extends StatefulWidget
 {
@@ -61,7 +61,7 @@ class MyLoisirsState extends State<MyLoisirs> with TickerProviderStateMixin
     liste.forEach((element) {
       bool isVisible = element.label==liste[selectedLoisir].label;
       //listeImage.add(AnimatedSize(duration: Duration(seconds: 1), vsync: this,child:Image.asset(element.getImageUrl(),width:widget.width,height: isVisible?250:0,fit: BoxFit.fitWidth),
-      listeImage.add(Image.asset(element.getImageUrl(),width: widget.width,height: 250,fit: BoxFit.fitWidth,
+      listeImage.add(Image.asset(element.getImageUrl(),width: widget.width,height: 250,fit: BoxFit.cover,
       ));
     });
 

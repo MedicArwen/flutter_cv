@@ -53,12 +53,6 @@ class DefautPanelView extends StatelessWidget
                   child: content
                 )
             ),
-              Container(height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(bottomLeft:Radius.circular(30),bottomRight:Radius.circular(30)),
-                  color: Color(0xffC8C8C8),
-                ),
-              )
             ],
           )
       );
